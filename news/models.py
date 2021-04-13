@@ -8,7 +8,7 @@ class Author(models.Model):
     author_rating = models.IntegerField(default=0)
 
     def update_rating(self):
-        posts_author = Post.objects.filter(author=self.id,post_type='article')
+        posts_author = Post.objects.filter(author=self.id, post_type='article')
 
         posts_author_total_rating = 0
         for post in posts_author:

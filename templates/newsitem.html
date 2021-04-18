@@ -11,13 +11,18 @@
 
     <table>
         <tr>
+            <td align="left">
             <h1>{{ newsitem }}</h1>
+            </td>
         </tr>
         <tr>
-            <h3>{{ newsitem.post_datetime|date:'d.m.Y' }}</h3>
+            <td align="right">
+                <h3>{{ newsitem.post_datetime|date:'d.m.Y' }}</h3>
+            </td>
         </tr>
         <tr>
-            {{ newsitem.post_content }}
+            <td align="left">{{ newsitem.post_content }}
+            </td>
         </tr>
     </table>
 {% endblock content %}

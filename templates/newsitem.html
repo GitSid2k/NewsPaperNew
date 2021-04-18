@@ -8,5 +8,16 @@
 
 <!-- В контенте на странице мы выводим все товары -->
 {% block content %}
-    <h1>{{ newsitem }}</h1>
+
+    <table>
+        <tr>
+            <h1>{{ newsitem }}</h1>
+        </tr>
+        <tr>
+            <h3>{{ newsitem.post_datetime|date:'d.m.Y' }}</h3>
+        </tr>
+        <tr>
+            {{ newsitem.post_content }}
+        </tr>
+    </table>
 {% endblock content %}

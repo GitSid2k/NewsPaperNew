@@ -1,6 +1,9 @@
 <!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
 {% extends 'flatpages/default.html' %}
 
+{% load custom_filters %}
+
+
 <!-- Название у нас будет posts -->
 {% block title %}
     Posts
@@ -12,16 +15,16 @@
     <table>
         <tr>
             <td align="left">
-            <h1>{{ newsitem }}</h1>
+            <h1>{{ newsitem|censor }}</h1>
             </td>
         </tr>
         <tr>
             <td align="right">
-                <h3>{{ newsitem.post_datetime|date:'d.m.Y' }}</h3>
+                <h4>{{ newsitem.post_datetime|date:'d-m-Y H:i:s' }}</h4>
             </td>
         </tr>
         <tr>
-            <td align="left">{{ newsitem.post_content }}
+            <td align="left">{{ newsitem.post_content|censor }}
             </td>
         </tr>
     </table>

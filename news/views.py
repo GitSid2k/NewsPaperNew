@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView
 from .models import Post
+from .filters import PostFilter
 
 
 class PostList(ListView):
@@ -7,6 +8,12 @@ class PostList(ListView):
     template_name = 'news.html'
     context_object_name = 'news'
     ordering = ['-post_datetime', ]
+    paginate_by = 1
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = PostFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 
 class NewsDetail(DetailView):

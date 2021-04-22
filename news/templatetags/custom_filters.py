@@ -1,5 +1,6 @@
 from pathlib import Path
 from django import template
+import os
 
 register = template.Library()
 
@@ -11,6 +12,8 @@ def multiply(value, arg):
     else:
         raise ValueError(f'Нельзя умножить {type(value)} на {type(arg)}')
 
+
+#  Фильтр мата
 
 list_location = Path(__file__).absolute().parent / 'censor_list.txt'
 censor_list = list_location.open().read().split(', ')[:-2]

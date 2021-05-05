@@ -14,7 +14,7 @@ Posts
 </form>
 <h1>Всего новостей - {{ news|length }}</h1>
 <br>
-{% if news %}
+    {% if news %}
         <table>
             <tr>
                 <td>
@@ -27,21 +27,22 @@ Posts
                     <b>Краткое содержание</b>
                 </td>
             </tr>
- {% for post in filter.qs %}
-            <tr>
-                <td align="left">
-                    {{ post.post_title|censor }}
-                </td>
-                <td>
-                    {{ post.post_datetime|date:'d.m.Y' }}
-                </td>
-                <td align="left">
-                    {{ post.post_content|truncatewords:20|censor }}
-                </td>
-            </tr>
-        {% endfor %}
-        </table>    {% else %}
-        <h2>Новостей нет!</h2>
+            {% for post in filter.qs %}
+                <tr>
+                    <td align="left">
+                        {{ post.post_title|censor }}
+                    </td>
+                    <td>
+                        {{ post.post_datetime|date:'d.m.Y' }}
+                    </td>
+                    <td align="left">
+                        {{ post.post_content|truncatewords:20|censor }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+<h2>Новостей нет!</h2>
     {% endif %}
 {% if is_paginated %}
 

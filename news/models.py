@@ -22,9 +22,7 @@ class Author(models.Model):
         for comments in Comment.objects.filter(post=posts_author):
             comments_posts_total_rating += comments.comment_rating
 
-        self.author_rating = posts_author_total_rating + \
-                             comments_author_total_rating + \
-                             comments_posts_total_rating
+        self.author_rating = posts_author_total_rating + comments_author_total_rating + comments_posts_total_rating
         self.save()
 
 
@@ -51,7 +49,7 @@ class Post(models.Model):
     post_rating = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.post_title
+        return f'{self.post_title}'
 
     def like(self):
         self.post_rating += 1
@@ -83,4 +81,4 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
-        return self.comment_text
+        return f'{self.comment_text}'

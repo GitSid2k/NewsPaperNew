@@ -6,3 +6,13 @@ class PostFilter(FilterSet):
     class Meta:
         model = Post
         fields = ('post_title', 'post_rating', 'post_datetime', 'post_category')
+
+
+# class PostFilter(FilterSet):
+#     class Meta:
+#         model = Post
+#         fields = {
+#             'post_title': ['icontains'],
+#             'post_datetime': ['gt'],
+#             'post_category': ['lt'],
+#         }

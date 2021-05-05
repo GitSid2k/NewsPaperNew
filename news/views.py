@@ -7,8 +7,8 @@ class PostList(ListView):
     model = Post
     template_name = 'news.html'
     context_object_name = 'news'
-    ordering = ['-post_datetime', ]
-    paginate_by = 1
+    ordering = ['-post_datetime']
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

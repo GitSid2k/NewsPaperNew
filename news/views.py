@@ -5,15 +5,22 @@ from .filters import PostFilter
 
 class PostList(ListView):
     model = Post
-    template_name = 'news.html'
-    context_object_name = 'news'
-    ordering = ['-post_datetime']
-    paginate_by = 3
+    template_name = "news.html"
+    context_object_name = "news"
+    ordering = ["-post_datetime"]
+    paginate_by = 1
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['filter'] = PostFilter(self.request.GET, queryset=self.get_queryset())
-        return context
+    def get_filter(self):
+        return PostFilter(self.request.GET, queryset=super().get_queryset())
+
+    def get_queryset(self):
+        return self.get_filter().qs
+
+    def get_context_data(self, *args, **kwargs):
+        return {
+            **super().get_context_data(*args, **kwargs),
+            "filter": self.get_filter(),
+        }
 
 
 class NewsDetail(DetailView):

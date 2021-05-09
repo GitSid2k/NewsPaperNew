@@ -25,8 +25,8 @@ class Author(models.Model):
         self.author_rating = posts_author_total_rating + comments_author_total_rating + comments_posts_total_rating
         self.save()
 
-    def __str__(self):
-        return self.author
+    # def __str__(self):
+    #     return self.author_name
 
 
 class Category(models.Model):
@@ -62,10 +62,16 @@ class Post(models.Model):
         self.post_rating -= 1
         self.save()
 
+    def __str__(self):
+        return f'{self.author}'
+
 
 class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.post}'
 
 
 class Comment(models.Model):

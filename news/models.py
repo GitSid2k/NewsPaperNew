@@ -25,9 +25,6 @@ class Author(models.Model):
         self.author_rating = posts_author_total_rating + comments_author_total_rating + comments_posts_total_rating
         self.save()
 
-    # def __str__(self):
-    #     return self.author_name
-
 
 class Category(models.Model):
     category_name = models.CharField(max_length=50, unique=True)
@@ -54,6 +51,9 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.post_title}'
 
+    def get_absolute_url(self):
+        return f'/news/{self.id}'
+
     def like(self):
         self.post_rating += 1
         self.save()
@@ -62,8 +62,11 @@ class Post(models.Model):
         self.post_rating -= 1
         self.save()
 
-    def __str__(self):
-        return f'{self.author}'
+    # def __str__(self):
+    #     return f'{self.author}'
+
+    # def get_absolute_url(self):
+    #     return f'/posts/{self.id}'
 
 
 class PostCategory(models.Model):

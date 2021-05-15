@@ -34,7 +34,13 @@ class PostList(ListView):
         return super().get(request, *args, **kwargs)
 
 
-class PostDetailView(DetailView):
+class NewDetail(DetailView):
+    model = Post
+    template_name = 'new.html'
+    context_object_name = 'new'
+
+
+class PostDetail(DetailView):
     template_name = 'post_detail.html'
     queryset = Post.objects.all()
 

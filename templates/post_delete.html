@@ -41,8 +41,8 @@ Posts
                 </tr>
             {% endfor %}
         </table>
-
+    {% endif %}
 <form method="POST">
-    {% csrf_token %}
-    <input type="submit" value="подтвердить"></form>
+{% csrf_token %}
+<input type="submit" value="подтвердить"></form>
 {% endblock content %}

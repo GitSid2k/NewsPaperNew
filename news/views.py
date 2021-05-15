@@ -40,7 +40,7 @@ class NewDetail(DetailView):
     context_object_name = 'new'
 
 
-class PostDetail(DetailView):
+class PostDetailView(DetailView):
     template_name = 'post_detail.html'
     queryset = Post.objects.all()
 

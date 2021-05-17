@@ -1,0 +1,42 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}Поиск по публикациям{% endblock title %}
+
+{% block content %}
+
+<h1>Поиск по публикациям</h1>
+
+<form method="GET">
+    {{ filter.form }}
+    <input type="submit" value="Найти" class="btn btn-outline-dark">
+</form>
+<br>
+
+<p>Всего найдено: {{ filter.qs|length }}</p>
+
+{% if filter.qs %}
+
+<table class='table'>
+    <tr>
+        <td><span class='font-weight-bold'>Заголовок</span></td>
+        <td align=center><span class='font-weight-bold text-nowrap'>Дата публикации</td>
+        <td><span class='font-weight-bold'>Текст</td>
+        <td><span class='font-weight-bold'></td>
+    </tr>
+    {% for new in filter.qs %}
+    <tr>
+        <td>{{ new.title|censor }}</td>
+        <td class='text-center'>{{ new.datetime|date:'d.m.y h:m' }}</td>
+        <td>{{ new.text|truncatewords:20|censor }}</td>
+        <td><a href="/news/{{ new.pk }}">Перейти</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+<h4>Публикаций не найдено</h4>
+{% endif %}
+
+{% endblock content %}

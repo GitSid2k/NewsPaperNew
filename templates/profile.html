@@ -1,0 +1,22 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}Профиль{% endblock title %}
+
+
+{% block content %}
+
+
+    {% if is_not_author %}
+        <a type="button" class="btn btn-warning p-3" href="upgrade/">Стать автором</a> 
+        <br><br>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Изменить" class='btn btn-outline-dark'>
+    </form>
+
+
+{% endblock content %}

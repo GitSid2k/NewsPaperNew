@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+
 from .models import Post, Category
 from .filters import PostFilter
 from .forms import PostForm

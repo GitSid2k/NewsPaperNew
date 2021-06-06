@@ -6,7 +6,6 @@
 {% block title %}
 Posts
 {% endblock title %}
-
 {% block content %}
 <form method="GET">
   {{ filter.form }}
@@ -80,4 +79,8 @@ Posts
         <input type="submit" value="Добавить пост">
     </form>
 <button> <a href="sign/logout/">Выйти</a> </button>
+
+{% if is_not_authors %}
+<button> <a href="sign/upgrade/"> Хочу стать автором! </a> </button>
+{% endif %}
 {% endblock content %}

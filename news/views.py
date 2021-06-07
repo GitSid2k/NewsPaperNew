@@ -61,7 +61,7 @@ class NewsDetail(DetailView):
 
 # дженерик для редактирования объекта
 class PostUpdateView(PermissionRequiredMixin, UpdateView):
-    template_name = 'post_create.html'
+    template_name = 'post_update.html'
     form_class = PostForm
     permission_required = ('news.change_post',)
 

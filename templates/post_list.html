@@ -12,6 +12,10 @@ Posts
   <input type="submit" value="Найти">
 </form>
 <h1>Всего новостей - {{ news|length }}</h1>
+<form action='subscribers' method="POST">
+        {% csrf_token%}
+        <button type="submit" >Подписаться</button>
+</form>
 <br>
     {% if news %}
         <table>

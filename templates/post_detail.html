@@ -2,21 +2,21 @@
 
 {% load custom_filters %}
 
-{% block title %}{{ post.title }}{% endblock title %}
+{% block title %} {{ post.title }} {% endblock title %}
 
 
 {% block content %}
 
-<a href="{{ 'edit' }}" class='text-decoration-none'><button class="btn btn-dark" type="button">Редактировать</button></a>
-<a href="{{ 'delete' }}" class='text-decoration-none'><button class="btn btn-warning" type="button">Удалить</button></a>
+<a href="{{ 'post_edit' }}" class='text-decoration-none'><button class="btn btn-dark" type="button">Редактировать</button></a>
+<a href="{{ 'post_delete' }}" class='text-decoration-none'><button class="btn btn-warning" type="button">Удалить</button></a>
 <br>
 <br>
 
 <table class='table'>
     <tr>
-        <td><span class='font-weight-bold'>Заголовок</span></td>
-        <td align=center><span class='font-weight-bold text-nowrap'>Дата публикации</td>
-        <td><span class='font-weight-bold'>Текст</td>
+        <td><span class='font-weight-bold'> Заголовок </span></td>
+        <td align=center><span class='font-weight-bold text-nowrap'> Дата публикации </span></td>
+        <td><span class='font-weight-bold'> Текст </span></td>
     </tr>
     <tr>
         <td>{{ post.title|censor }}</td>

@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-# Create your models here.
 class Author(models.Model):
     author = models.OneToOneField(User, on_delete=models.CASCADE)
     author_rating = models.IntegerField(default=0)
@@ -28,6 +27,7 @@ class Author(models.Model):
 
 class Category(models.Model):
     category_name = models.CharField(max_length=50, unique=True)
+    Subscriber = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return self.category_name
@@ -61,12 +61,6 @@ class Post(models.Model):
     def dislike(self):
         self.post_rating -= 1
         self.save()
-
-    # def __str__(self):
-    #     return f'{self.author}'
-
-    # def get_absolute_url(self):
-    #     return f'/posts/{self.id}'
 
 
 class PostCategory(models.Model):

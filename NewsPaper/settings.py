@@ -159,3 +159,9 @@ SITE_ID = 1
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'forawa@yandex.ru'
+EMAIL_HOST_PASSWORD = 'RomCola2k'
+EMAIL_USE_SSL = True

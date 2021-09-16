@@ -1,4 +1,5 @@
 from django.urls import path
+from django_filters import views
 
 from .views import PostList, PostCreateView, PostDetailView, PostDeleteView, PostUpdateView
 
@@ -15,6 +16,6 @@ urlpatterns = [
     path('post_create', PostCreateView.as_view(), name='post_create'),
     path('<int:pk>/delete', PostDeleteView.as_view(), name='post_delete'),
     path('<int:pk>/update', PostUpdateView.as_view(), name='post_update'),
-
+    path('news/subscrabe', views.news_follow, name="news_follow")
 
 ]

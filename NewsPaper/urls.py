@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django_filters import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('', include('protect.urls')),
     path('sign/', include('sign.urls')),
     path('account/', include('allauth.urls')),
+
 ]

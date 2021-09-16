@@ -19,3 +19,4 @@ class PostFilter(FilterSet):
             'post_category': ['exact'],
             'post_content': ['icontains'],
         }
+

@@ -12,7 +12,7 @@ Posts
   <input type="submit" value="Найти">
 </form>
 <h1>Всего новостей - {{ news|length }}</h1>
-<form action='subscribers' method="POST">
+<form action="{% url 'news_follow' %}" method="POST">
         {% csrf_token%}
         <button type="submit" >Подписаться</button>
 </form>

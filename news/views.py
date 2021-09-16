@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
-from .models import Post, Category
+from .models import Post, Category, Subscriber
 from .filters import PostFilter
 from .forms import PostForm
 
@@ -90,3 +90,15 @@ class CategorySubscribe(LoginRequiredMixin, View):
         else:
             category.subscriber.add(user)
         return redirect(request.META.get('HTTP_REFERER'))
+
+
+def news_follow(request):
+    sub = Subscriber.objects.filter(user=request.user).first()
+    if request.method == "POST":
+        if not sub:
+            Subscriber.objects.create(user=request.user)
+            return redirect('post_list', )
+        else:
+            return redirect('post_list')
+    else:
+        return redirect('post_list')

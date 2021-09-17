@@ -77,28 +77,3 @@ class PostDeleteView(DeleteView):
     template_name = 'post_delete.html'
     queryset = Post.objects.all()
     success_url = '/news/'
-
-
-class CategorySubscribe(LoginRequiredMixin, View):
-    model = Category
-
-    def post(self, request, *args, **kwargs):
-        user = self.request.user
-        category = get_object_or_404(Category, id=self.kwargs['pk'])
-        if category.subscriber.filter(username=self.request.user).exists():
-            category.subscriber.remove(user)
-        else:
-            category.subscriber.add(user)
-        return redirect(request.META.get('HTTP_REFERER'))
-
-
-def news_follow(request):
-    sub = Subscriber.objects.filter(user=request.user).first()
-    if request.method == "POST":
-        if not sub:
-            Subscriber.objects.create(user=request.user)
-            return redirect('post_list', )
-        else:
-            return redirect('post_list')
-    else:
-        return redirect('post_list')

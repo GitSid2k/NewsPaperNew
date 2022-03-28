@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('protect.urls')),
     path('sign/', include('sign.urls')),
     path('account/', include('allauth.urls')),
-    path('news', views.news_follow, name="news_follow")
+    path('news', views.news_follow, name="news_follow"),
+    #path('subscribe/', include(('subscribe.urls', 'subscribes'), namespace='subscribes'))
 
 ]

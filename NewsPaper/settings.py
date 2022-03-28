@@ -13,6 +13,9 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import news
+from news.models import CustomUser
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -50,6 +53,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
 ]
+
+AUTH_USER_MODEL = 'news.CustomUser'
 
 LOGIN_URL = '/account/login/'
 
@@ -91,14 +96,14 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-LOGIN_URL = '/account/login/'
+#LOGIN_URL = '/sign/login/'
 # LOGIN_REDIRECT_URL = '/'
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}
 
 WSGI_APPLICATION = 'NewsPaper.wsgi.application'
@@ -154,6 +159,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+DEFAULT_FROM_EMAIL = 'forawa@yandex.ru'
+
 SITE_ID = 1
 
 STATICFILES_DIRS = [
@@ -163,5 +170,7 @@ STATICFILES_DIRS = [
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'forawa@yandex.ru'
-EMAIL_HOST_PASSWORD = 'RomCola2k'
+EMAIL_HOST_PASSWORD = 'NovyyParol2021'
 EMAIL_USE_SSL = True
+
+

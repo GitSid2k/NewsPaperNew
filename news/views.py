@@ -61,7 +61,6 @@ class NewsDetail(DetailView):
     context_object_name = 'post_detail'
 
 
-# дженерик для редактирования объекта
 class PostUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'post_update.html'
     form_class = PostForm
@@ -72,7 +71,6 @@ class PostUpdateView(PermissionRequiredMixin, UpdateView):
         return Post.objects.get(pk=id)
 
 
-# дженерик для удаления товара
 class PostDeleteView(DeleteView):
     template_name = 'post_delete.html'
     queryset = Post.objects.all()

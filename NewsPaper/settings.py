@@ -96,7 +96,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-#LOGIN_URL = '/sign/login/'
+# LOGIN_URL = '/sign/login/'
 # LOGIN_REDIRECT_URL = '/'
 
 ACCOUNT_EMAIL_REQUIRED = True
@@ -172,5 +172,3 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = 'forawa@yandex.ru'
 EMAIL_HOST_PASSWORD = 'NovyyParol2021'
 EMAIL_USE_SSL = True
-
-
